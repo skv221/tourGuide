@@ -39,3 +39,7 @@
     <button class="btn prev" (click)="page=1">Edit</button>
     <button class="btn" (click)="page=5">Submit</button>
 </div>
+<div *ngIf="page===5">
+    <h2>Waiting for a guide...</h2>
+    <div class="lds-ripple"><div></div><div></div></div>
+</div>
