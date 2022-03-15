@@ -1,0 +1,41 @@
+<h1>Book a Guide</h1>
+<p>Book a guide for your tourist locations by entering only few details...</p>
+<div *ngIf="page===1">
+    <input type="text" placeholder="Enter your name" class="ipt frm" [(ngModel)]="name">
+    <input type="text" placeholder="Enter your phone number" class="ipt frm" [(ngModel)]="phNo">
+    <input type="text" placeholder="Enter your planned tourist spot" class="ipt frm" [(ngModel)]="spot"><br>
+    <button class="btn" (click)="page=2">Next</button>
+</div>
+<div *ngIf="page===2">
+    <input type="text" placeholder="Enter your estimated budget(in Rupees)" class="ipt frm" [(ngModel)]="budget">
+    <input type="text" onfocus="(this.type='date')" placeholder="From Date" class="ipt frm" [(ngModel)]="from"> 
+    <input type="text" onfocus="(this.type='date')" placeholder="To Date" class="ipt frm" [(ngModel)]="to"><br>
+    <button class="btn prev" (click)="page=1">Previous</button>
+    <button class="btn" (click)="page=3">Next</button>
+</div>
+<div *ngIf="page===3">
+    <input type="text" placeholder="Enter the total number of tourists" class="ipt frm" [(ngModel)]="total">
+    <input type="text" placeholder="Select your first preference" class="ipt frm" [(ngModel)]="p1">
+    <input type="text" placeholder="Select your second preference" class="ipt frm" [(ngModel)]="p2">
+    <input type="text" placeholder="Select your third preference" class="ipt frm" [(ngModel)]="p3">
+    <input type="text" placeholder="Select your last preference" class="ipt frm" [(ngModel)]="p4"><br>
+    <button class="btn prev" (click)="page=2">Previous</button>
+    <button class="btn" (click)="page=4">Next</button>
+</div>
+<div *ngIf="page===4">
+    <ul>
+        <li><p><b>Name:</b>                  {{name}}</p></li>
+        <li><p><b>Phone number:</b>          {{phNo}}</p></li>
+        <li><p><b>Tourist Spot:</b>          {{spot}}</p></li>
+        <li><p><b>Estimated budget:</b>      {{budget}}</p></li>
+        <li><p><b>From:</b>                  {{from}}</p></li>
+        <li><p><b>To:</b>                    {{to}}</p></li>
+        <li><p><b>Total no. of tourists:</b> {{total}}</p></li>
+        <li><p><b>First preference:</b>      {{p1}}</p></li>
+        <li><p><b>Second preference:</b>     {{p2}}</p></li>
+        <li><p><b>Third preference:</b>      {{p3}}</p></li>
+        <li><p><b>Fourth preference:</b>     {{p4}}</p></li>
+    </ul>
+    <button class="btn prev" (click)="page=1">Edit</button>
+    <button class="btn" (click)="page=5">Submit</button>
+</div>

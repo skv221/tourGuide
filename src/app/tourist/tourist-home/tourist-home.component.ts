@@ -11,5 +11,5 @@ export class TouristHomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  comp=1;
 }

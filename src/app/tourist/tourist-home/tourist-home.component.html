@@ -1,1 +1,18 @@
-<p>tourist-home works!</p>
+<ul class="navbar">
+    <li><h1>t(OUR)guide</h1></li>
+    <li><a  class="navElements" [class.active]="comp===1" (click)="comp=1">Home</a></li>
+    <li><a class="navElements" [class.active]="comp===2" (click)="comp=2">Book a Guide</a></li>
+    <li><a class="navElements" [class.active]="comp===3" (click)="comp=3">Profile</a></li>
+    <li><a class="navElements" routerLink="/touristLogin">Log out</a></li>
+  </ul>
+  <div class="content">
+    <div *ngIf="comp===1">
+        <app-current-ride></app-current-ride>
+      </div>
+    <div *ngIf="comp===2">
+        <app-book-guide></app-book-guide>
+      </div>
+    <div *ngIf="comp===3">
+        <app-tourist-profile></app-tourist-profile>
+      </div>
+  </div>
