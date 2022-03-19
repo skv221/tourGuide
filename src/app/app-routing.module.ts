@@ -9,7 +9,7 @@ import { TouristLoginComponent } from './tourist/tourist-login/tourist-login.com
 import { TouristSignupComponent } from './tourist/tourist-signup/tourist-signup.component';
 
 const routes: Routes = [
-  {path:"home",component:LandingPageComponent},
+  {path:"",component:LandingPageComponent},
   {path:"touristLogin",component:TouristLoginComponent},
   {path:"touristSignup",component:TouristSignupComponent},
   {path:"touristHome",component:TouristHomeComponent},
