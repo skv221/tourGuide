@@ -48,7 +48,7 @@ body{
 
 .btn {
     background-color: #005723;
-    border: 1px solid #005822;
+    /* border: 1px solid #005822; */
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
     box-sizing: border-box;
