@@ -48,6 +48,7 @@ body{
 .btn,
 .btn:after {
   width: 150px;
+  height: 40px;
   margin: 20px;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(45deg, transparent 5%, #FF013C 5%);
@@ -118,6 +119,12 @@ body{
   max-width: 300px;
   margin: auto;
   text-align: center;
+  transition: 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transform: translate(2px,-5px);
 }
 
 .title {
