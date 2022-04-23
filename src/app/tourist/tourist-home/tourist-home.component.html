@@ -4,7 +4,7 @@
     <li><a class="navElements" [class.active]="comp===2" (click)="comp=2">Book a Guide</a></li>
     <li><a class="navElements" [class.active]="comp===3" (click)="comp=3">Profile</a></li>
     <li><a class="navElements" routerLink="/touristLogin">Log out</a></li>
-  </ul>
+</ul>
   <div class="content">
     <div *ngIf="comp===1">
         <app-current-ride></app-current-ride>
