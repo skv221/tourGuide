@@ -38,6 +38,7 @@ export class TouristLoginComponent implements OnInit {
       if(currentUser.length)
       {
         this.router.navigate(['/touristHome']);
+        this._tourGuideService.setLoggedUser(currentUser[0]);
       }
       else
       {

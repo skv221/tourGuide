@@ -23,4 +23,13 @@ export class TourGuideService {
   {
     return this.http.get<Tourist[]>(this.touristURL);
   }
+  loggedUser!: Tourist;
+  setLoggedUser(tourist:Tourist)
+  {
+    this.loggedUser=tourist;
+  }
+  getLoggedUser()
+  {
+    return this.loggedUser;
+  }
 }
