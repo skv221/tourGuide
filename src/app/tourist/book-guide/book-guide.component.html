@@ -39,7 +39,22 @@
     <button class="btn prev" (click)="page=1">Edit</button>
     <button class="btn" (click)="page=5">Submit</button>
 </div>
-<div *ngIf="page===5">
+<div *ngIf="page==5">
+    <h3 style="text-align: center;"> Select one from the available Guides in {{spot}}</h3>
+    <div class="row">
+        <div class="column" *ngFor="let guide of guides">
+        <div class="card" *ngIf="spot===guide.spot">
+            <img src="../../../assets/img/img m.png" alt="John" style="width:50%;margin-top: 10px;" *ngIf="guide.gender===m">
+            <img src="../../../assets/img/img w.png" alt="John" style="width:50%;margin-top: 10px" *ngIf="guide.gender===f">
+            <h1>{{guide.name}}</h1>
+            <p class="title">{{guide.rating}}/5</p>
+            <p>Rs.{{guide.price}}/day</p>
+            <p><button class="btn">Contact</button></p>
+          </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="page===6">
     <h2>Waiting for a guide...</h2>
     <div class="lds-ripple"><div></div><div></div></div>
 </div>

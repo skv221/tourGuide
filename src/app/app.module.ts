@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { CurrentRideComponent } from './tourist/current-ride/current-ride.component';
 import { BookGuideComponent } from './tourist/book-guide/book-guide.component';
 import { TouristProfileComponent } from './tourist/tourist-profile/tourist-profile.component';
+import { TourGuideService } from './tour-guide.service';
 
 @NgModule({
   declarations: [
@@ -32,9 +34,10 @@ import { TouristProfileComponent } from './tourist/tourist-profile/tourist-profi
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TourGuideService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

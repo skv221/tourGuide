@@ -88,6 +88,43 @@ body{
   animation-timing-function: steps(2, end);
 }
 
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+.row {
+  margin: 0 -5px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+.card {
+  background: #333;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
 @keyframes glitch {
   0% {
     clip-path: var(--slice-1);
@@ -138,7 +175,7 @@ body{
 @media (min-width: 768px) {
   .btn,
   .btn:after {
-    width: 200px;
+    width: 150px;
     height: 56px;
   }
 }
