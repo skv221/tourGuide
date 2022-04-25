@@ -10,7 +10,7 @@
 </div>
 <div *ngIf="page===2">
     <input type="text" placeholder="Enter your estimated budget for Guide per day(in Rupees)" class="ipt frm" [(ngModel)]="budget">
-    <input type="text" onfocus="(this.type='date')" placeholder="From Date" class="ipt frm" [(ngModel)]="from"> 
+    <input type="text" onfocus="(this.type='date')"  placeholder="From Date" class="ipt frm" [(ngModel)]="from"> 
     <input type="text" onfocus="(this.type='date')" placeholder="To Date" class="ipt frm" [(ngModel)]="to"><br>
     <button class="btn prev" (click)="page=1">Previous</button>
     <button class="btn" (click)="navigate2()">Next</button>
