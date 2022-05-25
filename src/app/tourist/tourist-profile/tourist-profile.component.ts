@@ -15,6 +15,7 @@ export class TouristProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.loggedUser = this._tourGuideService.getLoggedUser();
+    console.log(this.loggedUser);
   }
 
 }

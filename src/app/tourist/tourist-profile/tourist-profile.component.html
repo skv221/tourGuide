@@ -3,5 +3,16 @@
     <h1>Hi, {{loggedUser.name}}!</h1>
     <p>Your email id is <b>{{loggedUser.email}}.</b></p>
     <p>Your phone number id is <b>{{loggedUser.phone}}.</b></p>
-    <p>You are yet to have your first trip with our service.</p>
+    <p *ngIf="loggedUser.details.length===0">You are yet to have your first trip with our service.</p>
+    <div class="row" *ngIf="loggedUser.details.length>0">
+        <h3>Previous trips</h3>
+        <div class="column" *ngFor="let detail of loggedUser.details">
+            <div class="card">
+                <p>Guide: {{detail.guideName}}</p>
+                <p>Spot: {{detail.spot}}</p>
+                <p>From: {{detail.from}}</p>
+                <p>To: {{detail.to}}</p>
+            </div>
+        </div>
+    </div>
 </div>

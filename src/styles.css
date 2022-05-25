@@ -33,6 +33,7 @@ body{
     padding: 10px;
     margin: 20px 0px;
     outline: none;
+    transition: 0.5s;
 }
 
 .ipt:focus

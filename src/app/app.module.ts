@@ -16,6 +16,9 @@ import { CurrentRideComponent } from './tourist/current-ride/current-ride.compon
 import { BookGuideComponent } from './tourist/book-guide/book-guide.component';
 import { TouristProfileComponent } from './tourist/tourist-profile/tourist-profile.component';
 import { TourGuideService } from './tour-guide.service';
+import { GuideHomeComponent } from './guide/guide-home/guide-home.component';
+import { BookingComponent } from './guide/booking/booking.component';
+import { GuideProfileComponent } from './guide/guide-profile/guide-profile.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { TourGuideService } from './tour-guide.service';
     PageNotFoundComponent,
     CurrentRideComponent,
     BookGuideComponent,
-    TouristProfileComponent
+    TouristProfileComponent,
+    GuideHomeComponent,
+    BookingComponent,
+    GuideProfileComponent
   ],
   imports: [
     BrowserModule,
