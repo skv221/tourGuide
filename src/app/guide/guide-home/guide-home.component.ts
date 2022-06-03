@@ -11,5 +11,5 @@ export class GuideHomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  comp=1;
 }

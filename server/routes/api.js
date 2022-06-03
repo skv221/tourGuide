@@ -78,7 +78,7 @@ router.get('/guides', (req,res)=>{
 });
 
 router.get('/guides/:id', (req,res)=>{
-    tourist.findById(req.params.id)
+    guide.findById(req.params.id)
     .exec((err,guide)=>
     {
         res.json(guide);

@@ -1,1 +1,14 @@
-<p>guide-home works!</p>
+<ul class="navbar">
+    <li><h1>t(OUR)guide</h1></li>
+    <li><a  class="navElements" [class.active]="comp===1" (click)="comp=1">Home</a></li>
+    <li><a class="navElements" [class.active]="comp===2" (click)="comp=2">Profile</a></li>
+    <li><a class="navElements" routerLink="/guideLogin">Log out</a></li>
+</ul>
+  <div class="content">
+    <div *ngIf="comp===1">
+        <app-booking></app-booking>
+      </div>
+    <div *ngIf="comp===2">
+        <app-guide-profile></app-guide-profile >
+      </div>
+  </div>

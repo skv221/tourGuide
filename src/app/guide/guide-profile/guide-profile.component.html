@@ -1,1 +1,18 @@
-<p>guide-profile works!</p>
+<div style="text-align: center;">
+    <h1>Hi {{guide.name}}!</h1>
+    <p>Your email id is <b>{{guide.email}}.</b></p>
+    <p>Your phone number id is <b>{{guide.phone}}.</b></p>
+    <p>Your specialised tourist spot is <b>{{guide.spot}}.</b></p>
+    <p *ngIf="guide.myTrips.length===0">You are yet to accept your first trip using our service.</p>
+    <div class="row" *ngIf="guide.myTrips.length>0">
+        <h3>Previous trips with our service</h3>
+        <div class="column" *ngFor="let detail of guide.myTrips">
+            <div class="card">
+                <p>Tourist: {{detail.touristName}}</p>
+                <p>Spot: {{detail.dest}}</p>
+                <p>From: {{detail.fr}}</p>
+                <p>To: {{detail.t}}</p>
+            </div>
+        </div>
+    </div>
+</div>
