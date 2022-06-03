@@ -1,4 +1,4 @@
-<div style="text-align: center;">
+<div style="text-align: center;" *ngIf="guide.waitingOrders.length>0">
     <h1>Awaiting orders</h1>
     <div class="flip-card" *ngFor="let order of guide.waitingOrders; let i = index">
         <div class="flip-card-inner">
@@ -21,4 +21,7 @@
           </div>
         </div>
       </div>
+</div>
+<div style="text-align: center;" *ngIf="guide.waitingOrders.length===0">
+    <h1>No orders waiting for your location!!!</h1>
 </div>
