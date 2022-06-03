@@ -18,12 +18,15 @@ export class BookingComponent implements OnInit {
     this.guideID = id;
     this._tourGuideService.getGuide(this.guideID)
     .subscribe(data=>this.guide=data);
+    this._tourGuideService.getGuides()
+    .subscribe(data=>this.guides=data);
   }
 
   public guideID!: string | null; 
   public guide!: Guide;
   trip: any;
   loggedTourist!: Tourist;
+  public guides!: Guide[];
 
 
   reject(i:number){
@@ -53,6 +56,20 @@ export class BookingComponent implements OnInit {
       this._tourGuideService.updateTourist(this.loggedTourist)
       .subscribe(data=>console.log(data));
     });
+    for(var guide of this.guides)
+    {
+      if(guide.spot===this.trip.dest)
+      {
+        for(var order of guide.waitingOrders)
+        {
+          if(JSON.stringify(order) === JSON.stringify(this.trip)){
+            let ind = guide.waitingOrders.indexOf(order);
+            guide.waitingOrders.splice(ind,1);
+            this._tourGuideService.updateGuide(guide);
+          }
+        }
+      }
+    }
   }
 
 }
