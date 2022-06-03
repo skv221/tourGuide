@@ -5,9 +5,14 @@
     border: 5px solid #00E6F6;
 }
 .container{
+    visibility: hidden;
     background-color: #333;
     padding: 50px;
     margin-left: 5%;
+}
+
+.container.show{
+    visibility: visible;
 }
 
 .content-1{

@@ -23,7 +23,6 @@ export class CurrentRideComponent implements OnInit {
     this._tourGuideService.getTourist(this.touristId)
     .subscribe(data=>{
       this.loggedUser=data;
-      console.log(this.loggedUser);
       this.checkDate();
     });
     navigator.geolocation.getCurrentPosition((position)=>
@@ -62,7 +61,6 @@ export class CurrentRideComponent implements OnInit {
       {
         this.loggedUser.currentTrip=trip;
         this._tourGuideService.updateTourist(this.loggedUser)
-        .subscribe(data=>console.log(data));
         this.showMap=true;
       }
       else if(today.toDateString()>trip.toDateString())
@@ -72,7 +70,6 @@ export class CurrentRideComponent implements OnInit {
         if(index>-1)
           this.loggedUser.plannedTrips.splice(index,1);
         this._tourGuideService.updateTourist(this.loggedUser)
-        .subscribe(data=>console.log(data));
       }
     }
   }

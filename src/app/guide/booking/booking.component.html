@@ -1,1 +1,24 @@
-<p>booking works!</p>
+<div style="text-align: center;">
+    <h1>Awaiting orders</h1>
+    <div class="flip-card" *ngFor="let order of guide.waitingOrders; let i = index">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>{{order.dest}}</h3>
+            <p>Tourist: {{order.touristName}}</p>
+            <p>From: {{order.fr}}</p>
+            <p>To: {{order.t}}</p>
+            <p>Budget: Rs.{{order.bud}}/per day</p>
+            <p>No. of tourists: {{order.noOfTourist}}</p>
+          </div>
+          <div class="flip-card-back">
+            <h3>Preferences</h3>
+            <p>Preference 1: {{order.pre1}}</p>
+            <p>Preference 2: {{order.pre2}}</p>
+            <p>Preference 3: {{order.pre3}}</p>
+            <p>Preference 4: {{order.pre4}}</p>
+            <button class="btn" (click)="accept(i)">Accept</button>
+            <button class="btn" (click)="reject(i)">Reject</button>
+          </div>
+        </div>
+      </div>
+</div>

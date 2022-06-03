@@ -1,4 +1,4 @@
-<div class="container" *ngIf="showMap">
+<div class="container" [class.show]="showMap">
     <div class="content-1">
         <h1>Current Trip :</h1>
         <br>
@@ -11,7 +11,7 @@
     </div>
     <div id="map"></div>
 </div>
-<div class="container" *ngIf="!showMap">
+<div class="container" [class.show]="!showMap">
     <div class="content-1">
         <h1>No trips planned today</h1>
     </div>
