@@ -9,7 +9,8 @@ export class TouristHomeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
+      
   }
   comp=1;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { TourGuideService } from 'src/app/tour-guide.service';
 import { Tourist } from 'src/app/tourists';
 
@@ -10,12 +11,15 @@ import { Tourist } from 'src/app/tourists';
 export class TouristProfileComponent implements OnInit {
 
   public loggedUser!: Tourist; 
+  public touristId!: string | null;
 
-  constructor(private _tourGuideService:TourGuideService) { }
+  constructor(private _tourGuideService:TourGuideService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.loggedUser = this._tourGuideService.getLoggedUser();
-    console.log(this.loggedUser);
+    let id = this.route.snapshot.paramMap.get('id');
+    this.touristId = id;
+    this._tourGuideService.getTourist(this.touristId)
+    .subscribe(data=>this.loggedUser=data);
   }
 
 }

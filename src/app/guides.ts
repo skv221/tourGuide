@@ -1,4 +1,5 @@
 export interface Guide{
+    _id:string;
     name:string;
     phone:string;
     email:string;
@@ -7,4 +8,6 @@ export interface Guide{
     rating:number;
     price:number;
     gender:string;
+    waitingOrders:any[];
+    myTrips:any[];
 }

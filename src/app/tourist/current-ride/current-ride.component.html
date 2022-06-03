@@ -1,2 +1,19 @@
-
+<div class="container" *ngIf="showMap">
+    <div class="content-1">
+        <h1>Current Trip :</h1>
+        <br>
+        <p>Guide Name : {{loggedUser.currentTrip.guideName}}</p>
+        <p>Guide Phone number : {{loggedUser.currentTrip.guideNo}}</p>
+        <p>Current location : {{cl.address.city_district}}, {{cl.address.city}} </p>
+        <br>
+        <p><b>In case of Emergency, press the below button.</b></p>
+        <button class="btn" (click)="callEmergency()">Emergency</button>
+    </div>
     <div id="map"></div>
+</div>
+<div class="container" *ngIf="!showMap">
+    <div class="content-1">
+        <h1>No trips planned today</h1>
+    </div>
+    
+</div>

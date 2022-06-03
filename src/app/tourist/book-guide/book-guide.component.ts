@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Guide } from 'src/app/guides';
 import { TourGuideService } from 'src/app/tour-guide.service';
 import { Tourist } from 'src/app/tourists';
@@ -10,16 +11,23 @@ import { Tourist } from 'src/app/tourists';
 })
 export class BookGuideComponent implements OnInit {
 
-  constructor(private _tourGuideService:TourGuideService) { }
+  constructor(private _tourGuideService:TourGuideService, private route:ActivatedRoute) { }
 
   public guides!: Guide[];
+  public touristId!: string | null;
+  public loggedUser!: Tourist;
 
   ngOnInit(): void {
-      this._tourGuideService.getGuides()
-          .subscribe(data=>this.guides=data);
-      this.loggedUser = this._tourGuideService.getLoggedUser();
+    let id = this.route.snapshot.paramMap.get('id');
+    this.touristId = id;
+    this._tourGuideService.getTourist(this.touristId)
+    .subscribe(data=>{
+      this.loggedUser=data;
+      console.log(this.loggedUser);
+    });
+    this._tourGuideService.getGuides()
+    .subscribe(data=>this.guides=data);
   }
-  public loggedUser!: Tourist;
   cities = ["Chennai", "Madurai", "Coimbatore", "Kanyakumari","Pondicherry" ];
   preferences = ["Natural Places", "Religious Places", "Historic Places", "Partying and Fun","None" ];
   m="m";
@@ -35,6 +43,7 @@ export class BookGuideComponent implements OnInit {
   p3="";
   p4="";
   openSB=false;
+  plannedTrips!:any;
 
   openSnackBar() {
     this.openSB=true;
@@ -73,4 +82,39 @@ export class BookGuideComponent implements OnInit {
       this.page=3;
     }
   }
+  navigate4()
+  {
+    this.plannedTrips={
+      id:this.loggedUser._id,
+      touristName:this.loggedUser.name,
+      noOfTourist:this.total,
+      dest:this.spot,
+      bud:this.budget,
+      fr:this.from,
+      t:this.to,
+      pre1:this.p1,
+      pre2:this.p2,
+      pre3:this.p3,
+      pre4:this.p4,
+      guideName:"Not accepted",
+      guideNo:"NA",
+      status:"Waiting"
+    };
+    this.loggedUser.plannedTrips.push(this.plannedTrips);
+    this._tourGuideService.updateTourist(this.loggedUser)
+    .subscribe(data=>console.log(data));
+    for(var guide of this.guides)
+    {
+      if(guide.spot===this.spot)
+      {
+        guide.waitingOrders.push(this.plannedTrips);
+        this._tourGuideService.updateGuide(guide)
+        .subscribe(data=>console.log(data));
+      }
+    }
+    this.page=5;
+  }
+
+  
+
 }

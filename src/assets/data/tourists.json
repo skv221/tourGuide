@@ -4,13 +4,17 @@
         "email":"shanmuganadhiyamcse@citchennai.net",
         "phone":"9876543210",
         "password":"123456789",
-        "details":[{"guideName":"Venkatesan","spot":"Chennai","from":"05-29-2022","to":"05-29-2022"}]
+        "details":[{"guideName":"Venkatesan","spot":"Chennai","from":"05-29-2022","to":"05-29-2022"}],
+        "plannedTrips":[],
+        "currentTrip":""
     },
     {
         "name":"Aaishwarya",
         "email":"aaishwaryaskcse@citchennai.net",
         "phone":"9638520741",
         "password":"123456789",
-        "details":[]
+        "details":[],
+        "plannedTrips":[],
+        "currentTrip":""
     }
 ]

@@ -1,11 +1,14 @@
 <div class="container">
-    <h1>BECOME A TOURIST</h1>
-    <input type="email" placeholder="Email ID" class="ipt"><br>
-    <input type="password" placeholder="Password" class="ipt"><br>
-    <input type="password" placeholder="Confirm Password" class="ipt"><br>
-    <button class="btn" routerLink="/touristLogin">Sign Up</button><br>
+    <h1>BECOME A TOURIST</h1> 
+    <input type="text" placeholder="Name" class="ipt" [(ngModel)]="name"><br>
+    <input type="email" placeholder="Email ID" class="ipt" [(ngModel)]="email"><br>
+    <input type="text" placeholder="Phone number" class="ipt" [(ngModel)]="phone"><br>
+    <input type="password" placeholder="Password" class="ipt" [(ngModel)]="pass"><br>
+    <input type="password" placeholder="Confirm Password" class="ipt" [(ngModel)]="cpass"><br>
+    <button class="btn" (click)="registerTourist()">Sign Up</button><br>
     <div style="float:left; width: 20%;"><hr/></div>
     <div style="float:right; width: 20%;"><hr/></div>
     Already have an account?<br>
     <button class="btn" routerLink="/touristLogin">Log In</button>
 </div>
+<div id="snackbar" [class.show]="openSB">{{warning}}</div>

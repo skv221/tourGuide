@@ -12,10 +12,10 @@ const routes: Routes = [
   {path:"",component:LandingPageComponent},
   {path:"touristLogin",component:TouristLoginComponent},
   {path:"touristSignup",component:TouristSignupComponent},
-  {path:"touristHome",component:TouristHomeComponent},
+  {path:"touristHome/:id",component:TouristHomeComponent},
   {path:"guideLogin",component:GuideLoginComponent},
   {path:"guideSignup",component:GuideSignupComponent},
-  {path:"**",component:PageNotFoundComponent}
+  // {path:"**",component:PageNotFoundComponent}
 ];
 
 @NgModule({

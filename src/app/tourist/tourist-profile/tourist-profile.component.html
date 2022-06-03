@@ -5,13 +5,25 @@
     <p>Your phone number id is <b>{{loggedUser.phone}}.</b></p>
     <p *ngIf="loggedUser.details.length===0">You are yet to have your first trip with our service.</p>
     <div class="row" *ngIf="loggedUser.details.length>0">
-        <h3>Previous trips</h3>
+        <h3>Previous trips with our service</h3>
         <div class="column" *ngFor="let detail of loggedUser.details">
             <div class="card">
                 <p>Guide: {{detail.guideName}}</p>
                 <p>Spot: {{detail.spot}}</p>
                 <p>From: {{detail.from}}</p>
                 <p>To: {{detail.to}}</p>
+            </div>
+        </div>
+    </div>
+    <p *ngIf="loggedUser.plannedTrips.length===0">You didn't plan any trips in future.</p>
+    <div class="row" *ngIf="loggedUser.plannedTrips.length>0">
+        <h3>Planned trips with our service</h3>
+        <div class="column" *ngFor="let detail of loggedUser.plannedTrips">
+            <div class="card">
+                <h2>{{detail.dest}}</h2>
+                <p>From: {{detail.fr}}</p>
+                <p>To: {{detail.t}}</p>
+                <p>Guide: {{detail.guideName}}</p>
             </div>
         </div>
     </div>
