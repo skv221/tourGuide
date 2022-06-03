@@ -10,7 +10,7 @@ import { Tourist } from 'src/app/tourists';
 })
 export class TouristLoginComponent implements OnInit {
 
-  constructor(private _tourGuideService:TourGuideService,private router: Router) { }
+  constructor(private _tourGuideService:TourGuideService, private router: Router) { }
 
   public tourists!:Tourist[];
 

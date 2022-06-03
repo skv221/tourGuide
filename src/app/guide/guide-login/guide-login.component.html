@@ -1,10 +1,11 @@
 <div class="container">
     <h1>LOGIN AS GUIDE</h1>
-    <input type="email" placeholder="Email ID" class="ipt"><br>
-    <input type="password" placeholder="Password" class="ipt"><br>
-    <button class="btn" routerLink="/">Log In</button><br>
+    <input type="text" placeholder="Email/Phone number" class="ipt" [(ngModel)]="userName"><br>
+    <input type="password" placeholder="Password" class="ipt" [(ngModel)]="password"><br>
+    <button class="btn" (click)="login()">Log In</button><br>
     <div style="float:left; width: 20%;"><hr/></div>
     <div style="float:right; width: 20%;"><hr/></div>
     Don't have an account?<br>
     <button class="btn" routerLink="/guideSignup">Sign Up</button>
 </div>
+<div id="snackbar" [class.show]="openSB">{{warning}}</div>

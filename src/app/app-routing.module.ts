@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GuideHomeComponent } from './guide/guide-home/guide-home.component';
 import { GuideLoginComponent } from './guide/guide-login/guide-login.component';
 import { GuideSignupComponent } from './guide/guide-signup/guide-signup.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:"touristHome/:id",component:TouristHomeComponent},
   {path:"guideLogin",component:GuideLoginComponent},
   {path:"guideSignup",component:GuideSignupComponent},
+  {path:"guideHome/:id",component:GuideHomeComponent},
   // {path:"**",component:PageNotFoundComponent}
 ];
 
