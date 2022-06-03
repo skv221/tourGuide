@@ -5,8 +5,6 @@ export interface Guide{
     email:string;
     password:string;
     spot:string;
-    rating:number;
-    price:number;
     gender:string;
     waitingOrders:any[];
     myTrips:any[];

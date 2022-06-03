@@ -1,0 +1,24 @@
+.frm
+{
+    width: 70%;
+}
+
+.frm1
+{
+    width: 72%;
+}
+
+option{
+    background-color: #220D5A;
+    margin: 10px;
+}
+
+option:disabled{
+    color: white;
+    font-style: italic;
+}
+
+.prev
+{
+    margin-right: 30px;
+}
