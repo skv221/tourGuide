@@ -53,24 +53,27 @@ export class CurrentRideComponent implements OnInit {
 
   checkDate(){
     const today = new Date();
-    
-    for(var trip of this.loggedUser.plannedTrips)
+    let currentTrip = this.loggedUser.plannedTrips.filter(trip=>today.toDateString()==new Date(trip.fr).toDateString())
+    if(currentTrip.length)
     {
-      const tripDate = new Date(trip.fr);
-      if(today.toDateString()==tripDate.toDateString())
-      {
-        this.loggedUser.currentTrip=trip;
-        this._tourGuideService.updateTourist(this.loggedUser)
-        this.showMap=true;
-      }
-      else if(today.toDateString()>trip.toDateString())
-      {
-        this.loggedUser.details.push(trip);
-        const index = this.loggedUser.plannedTrips.indexOf(trip);
-        if(index>-1)
-          this.loggedUser.plannedTrips.splice(index,1);
-        this._tourGuideService.updateTourist(this.loggedUser)
-      }
+      this.loggedUser.currentTrip = currentTrip[0];
+      this._tourGuideService.updateTourist(this.loggedUser)
+      .subscribe(data=>console.log("Updated"));
+      this.showMap=true;
+    }
+    let previousTrips = this.loggedUser.plannedTrips.filter(trip=>today.toDateString()>new Date(trip.fr).toDateString())
+    if(previousTrips.length)
+    {
+      this.loggedUser.details = previousTrips;
+      this._tourGuideService.updateTourist(this.loggedUser)
+      .subscribe(data=>console.log("Updated"));
+    }
+    let plannedTrips = this.loggedUser.plannedTrips.filter(trip=>today.toDateString()<new Date(trip.fr).toDateString())
+    if(plannedTrips.length)
+    {
+      this.loggedUser.plannedTrips = plannedTrips;
+      this._tourGuideService.updateTourist(this.loggedUser)
+      .subscribe(data=>console.log("Updated"));
     }
   }
 }

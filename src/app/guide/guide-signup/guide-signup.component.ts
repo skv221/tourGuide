@@ -38,11 +38,31 @@ export class GuideSignupComponent implements OnInit {
     myTrips:[]
   }
 
+  stringContainsNumber(_string: string) {
+    var format = /^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
+    return /\d/.test(_string)||_string.match(format);
+  }
+
+ ValidateEmail(_string:string){
+    var atposition=_string.indexOf("@");  
+    var dotposition=_string.lastIndexOf(".");  
+    if (atposition<1 || dotposition<atposition+2 || dotposition+2>=_string.length){    
+      return false;  
+    }
+    else{
+      return true;
+    }
+  }
+
+  onlyNumbers(_phone:string) {
+    return /^[0-9]+$/.test(_phone);
+  }
+
   navigate()
   {
-    if(this.name===""||this.email===""||this.phone===""||this.gender==="")
+    if(this.name===""||this.email===""||this.phone===""||this.gender===""||this.stringContainsNumber(this.name)||!this.ValidateEmail(this.email)||!this.onlyNumbers(this.phone))
     {
-      this.warning="Don't leave any fields empty";
+      this.warning="Some Details are missing or irrelevant";
       this.openSnackBar();
     }
     else{

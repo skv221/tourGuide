@@ -121,6 +121,7 @@ body{
   margin: auto;
   text-align: center;
   transition: 0.2s;
+  margin-bottom: 5px;
 }
 
 .card:hover {

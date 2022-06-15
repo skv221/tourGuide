@@ -102,12 +102,14 @@ export class BookGuideComponent implements OnInit {
     };
     this.loggedUser.plannedTrips.push(this.plannedTrips);
     this._tourGuideService.updateTourist(this.loggedUser)
+    .subscribe(data=>console.log("Update!!"));
     for(var guide of this.guides)
     {
       if(guide.spot===this.spot)
       {
         guide.waitingOrders.push(this.plannedTrips);
         this._tourGuideService.updateGuide(guide)
+        .subscribe(data=>console.log("Update!!"));
       }
     }
     this.page=5;

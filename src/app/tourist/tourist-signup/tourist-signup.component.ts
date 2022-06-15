@@ -33,10 +33,30 @@ export class TouristSignupComponent implements OnInit {
     currentTrip:{none:"none"}
   }
 
+  stringContainsNumber(_string: string) {
+    var format = /^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
+    return /\d/.test(_string)||_string.match(format);
+  }
+
+ ValidateEmail(_string:string){
+    var atposition=_string.indexOf("@");  
+    var dotposition=_string.lastIndexOf(".");  
+    if (atposition<1 || dotposition<atposition+2 || dotposition+2>=_string.length){    
+      return false;  
+    }
+    else{
+      return true;
+    }
+  }
+
+  onlyNumbers(_phone:string) {
+    return /^[0-9]+$/.test(_phone);
+  }
+
   registerTourist()
   {
-    if(this.name===""||this.email===""||this.phone===""||this.pass===""||this.cpass===""){
-      this.warning="Don't leave any fields empty";
+    if(this.name===""||this.email===""||this.phone===""||this.pass===""||this.cpass===""||this.stringContainsNumber(this.name)||!this.ValidateEmail(this.email)||!this.onlyNumbers(this.phone)){
+      this.warning="Some Details are missing or irrelevant";
       this.openSnackBar();
     }
     else{
